@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Http;
 
 class PassportAuthService implements AuthServiceInterface
 {
-    public function login(array $credentials): ?string
+    public function login(array $credentials): ?array
     {
         // Gửi request đến /oauth/token
         $response = Http::asForm()->post(config('services.passport.login_endpoint'), [
@@ -31,7 +31,7 @@ class PassportAuthService implements AuthServiceInterface
         // gọi API revoke token hoặc xóa token
     }
 
-    public function register(array $data): User
+    public function register(array $data): array
     {
         return User::create($data); // hoặc gọi API riêng
     }
@@ -39,5 +39,14 @@ class PassportAuthService implements AuthServiceInterface
     public function user(): ?User
     {
         return auth()->user();
+    }
+
+    /**
+     * @param User $user
+     * Register a User
+     */
+    public function me(User $user): User
+    {
+        return $user;
     }
 }
