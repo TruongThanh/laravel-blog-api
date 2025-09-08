@@ -2,7 +2,7 @@
 
 namespace App\Services\Auth;
 
-use App\Models\User;
+use App\Models\Api\User;
 use App\Services\Api\Auth\AuthServiceInterface;
 use Illuminate\Support\Facades\Http;
 

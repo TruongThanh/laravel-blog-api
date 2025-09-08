@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\PostController;
+use App\Http\Controllers\Api\UserController;
 
 // Auth API
 Route::post('/register', [AuthController::class, 'register']);
@@ -20,3 +21,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('posts', PostController::class)->except(['index']);
 });
 
+// User API
+Route::middleware('auth:sanctum')->group(function () {
+    Route::apiResource('users', UserController::class);
+});

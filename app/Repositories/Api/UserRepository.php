@@ -2,8 +2,9 @@
 
 namespace App\Repositories\Api;
 
-use App\Models\User;
+use App\Models\Api\User;
 use App\Repositories\Api\Interfaces\UserRepositoryInterface;
+use Illuminate\Support\Facades\Auth;
 
 class UserRepository implements UserRepositoryInterface
 {
@@ -17,7 +18,8 @@ class UserRepository implements UserRepositoryInterface
     public function update(array $data)
     {
         // Implementation for updating user data
-        $user = auth()->user();
+        /** @var User $user */
+        $user = Auth::user();
         $user->update($data);
         return $user;
     }

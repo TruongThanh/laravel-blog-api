@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
-use App\Models\User;
+use App\Models\Api\User;
 use App\Observers\Api\UserObserver;
+use App\Repositories\Api\Interfaces\UserRepositoryInterface;
+use App\Repositories\Api\UserRepository;
 use App\Services\Api\Auth\AuthServiceInterface;
 use App\Services\Api\Auth\SanctumAuthService;
 use App\Services\Api\UserService;
@@ -18,8 +20,12 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->bind(
             AuthServiceInterface::class,
-            SanctumAuthService::class,
-            UserService::class
+            SanctumAuthService::class
+        );
+        
+        $this->app->bind(
+            UserRepositoryInterface::class,
+            UserRepository::class
         );
     }
 

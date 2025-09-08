@@ -22,9 +22,9 @@ class UpdateUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|min:3|max:50',
-            'email' => 'required|email|unique:users,email,' . $this->user()->id,
-            'avatar' => 'nullable|image|mimes:jpg,png,jpeg|max:2048',
+            'name' => 'sometimes|string|min:3|max:50',
+            'email' => 'sometimes|email|unique:users,email,' . $this->user()->id,
+            'avatar' => 'sometimes|image|mimes:jpg,png,jpeg|max:2048',
         ];
     }
 }

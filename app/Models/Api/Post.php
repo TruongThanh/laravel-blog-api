@@ -2,7 +2,7 @@
 
 namespace App\Models\Api;
 
-use App\Models\User;
+use App\Models\Api\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
