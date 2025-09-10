@@ -31,7 +31,7 @@ class StorePostRequest extends FormRequest
             'likes'       => 'nullable|integer|min:0',
             'comments'    => 'nullable|integer|min:0',
             'read_time'   => 'nullable|integer|min:0',
-            'publish_at'  => 'nullable|date',
+            'published_at'  => 'nullable|date',
             'author_id'   => 'required|exists:users,id',
             'category_id' => 'required|exists:categories,id',
         ];
