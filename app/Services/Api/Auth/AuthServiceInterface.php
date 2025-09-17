@@ -2,7 +2,7 @@
 
 namespace App\Services\Api\Auth;
 
-use App\Models\User;
+use App\Models\Api\User;
 
 interface AuthServiceInterface
 {

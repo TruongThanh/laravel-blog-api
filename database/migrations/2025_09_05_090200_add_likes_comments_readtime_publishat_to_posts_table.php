@@ -12,14 +12,14 @@ return new class extends Migration
             $table->bigInteger('likes')->default(0);
             $table->bigInteger('comments')->default(0);
             $table->integer('read_time')->default(0); // in minutes
-            $table->timestamp('publish_at')->nullable();
+            $table->timestamp('published_at')->nullable();
         });
     }
 
     public function down(): void
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->dropColumn(['likes', 'comments', 'read_time', 'publish_at']);
+            $table->dropColumn(['likes', 'comments', 'read_time', 'published_at']);
         });
     }
 };

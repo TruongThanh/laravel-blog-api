@@ -26,7 +26,7 @@ class PostResource extends JsonResource
             'likes' => (int) $this->likes,
             'comments' => (int) $this->comments,
             'read_time' => (int) $this->read_time,
-            'publish_at' => $this->publish_at?->format('Y-m-d H:i:s'),
+            'published_at' => $this->published_at?->format('Y-m-d H:i:s'),
             'author' => $this->whenLoaded('author', function () {
                 return [
                     'id' => $this->author->id,

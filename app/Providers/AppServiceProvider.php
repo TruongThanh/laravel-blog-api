@@ -2,8 +2,13 @@
 
 namespace App\Providers;
 
+use App\Models\Api\User;
+use App\Observers\Api\UserObserver;
+use App\Repositories\Api\Interfaces\UserRepositoryInterface;
+use App\Repositories\Api\UserRepository;
 use App\Services\Api\Auth\AuthServiceInterface;
 use App\Services\Api\Auth\SanctumAuthService;
+use App\Services\Api\UserService;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -17,6 +22,11 @@ class AppServiceProvider extends ServiceProvider
             AuthServiceInterface::class,
             SanctumAuthService::class
         );
+        
+        $this->app->bind(
+            UserRepositoryInterface::class,
+            UserRepository::class
+        );
     }
 
     /**
@@ -24,6 +34,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        User::observe(UserObserver::class);
     }
 }

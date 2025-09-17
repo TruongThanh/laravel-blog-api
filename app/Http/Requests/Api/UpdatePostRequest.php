@@ -32,7 +32,7 @@ class UpdatePostRequest extends FormRequest
             'likes'       => 'nullable|integer|min:0',
             'comments'    => 'nullable|integer|min:0',
             'read_time'   => 'nullable|integer|min:0',
-            'publish_at'  => 'nullable|date',
+            'published_at'  => 'nullable|date',
             'category_id' => 'nullable|exists:categories,id',
             'tags'        => 'nullable|array',
             'tags.*'      => 'integer|exists:tags,id',
